@@ -45,4 +45,9 @@ dependencies {
     implementation  'io.github.scwang90:refresh-layout-kernel:2.0.5'
     implementation  'io.github.scwang90:refresh-header-classics:2.0.5'
     implementation  'io.github.scwang90:refresh-footer-classics:2.0.5'
+
+    // 权限请求
+    implementation 'com.github.getActivity:XXPermissions:13.6'
+
+    implementation 'com.blankj:utilcodex:1.31.0'
 }

@@ -1,19 +1,42 @@
 package com.example.androidsms
 
 import android.database.Cursor
+import android.database.DataSetObserver
 import android.database.SQLException
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Adapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.blankj.utilcode.util.TimeUtils
+import com.example.androidsms.models.SMSInfo
+import com.hjq.permissions.Permission
+import com.hjq.permissions.XXPermissions
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_sms.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
+    private val smsList = ArrayList<SMSInfo>()
+    private val adapterSMS by lazy { SMSAdapter() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        recycler_sms.layoutManager = LinearLayoutManager(this)
+        val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        recycler_sms.addItemDecoration(dividerItemDecoration)
+        recycler_sms.adapter = adapterSMS
 
         refresh_sms.setOnRefreshListener {
             getSmsList()
@@ -22,78 +45,58 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getSmsList() {
-        val smsBuilder = StringBuilder()
-        try {
-            val uri: Uri = Uri.parse("content://sms/")
-            val projection = arrayOf(
-                "_id", "address", "person",
-                "body", "date", "type"
-            )
-            var cur: Cursor? = contentResolver.query(
-                uri, projection, null,
-                null, "date desc"
-            ) // 获取手机内部短信
-            if (cur!!.moveToFirst()) {
-                val index_Address = cur.getColumnIndex("address")
-                val index_Person = cur.getColumnIndex("person")
-                val index_Body = cur.getColumnIndex("body")
-                val index_Date = cur.getColumnIndex("date")
-                val index_Type = cur.getColumnIndex("type")
-                do {
-                    val strAddress = cur.getString(index_Address)
-                    val intPerson = cur.getInt(index_Person)
-                    val strbody = cur.getString(index_Body)
-                    val longDate = cur.getLong(index_Date)
-                    val intType = cur.getInt(index_Type)
-                    val dateFormat = SimpleDateFormat(
-                        "yyyy-MM-dd hh:mm:ss"
+        XXPermissions.with(this).permission(Permission.READ_SMS).request { permissions, all ->
+            if (all) {
+                val smsBuilder = StringBuilder()
+                try {
+                    val uri: Uri = Uri.parse("content://sms/")
+                    val projection = arrayOf(
+                        "_id", "address", "person",
+                        "body", "date", "type"
                     )
-                    val d = Date(longDate)
-                    val strDate: String = dateFormat.format(d)
-                    var strType = ""
-                    strType = when (intType) {
-                        1 -> {
-                            "接收"
-                        }
-                        2 -> {
-                            "发送"
-                        }
-                        3 -> {
-                            "草稿"
-                        }
-                        4 -> {
-                            "发件箱"
-                        }
-                        5 -> {
-                            "发送失败"
-                        }
-                        6 -> {
-                            "待发送列表"
-                        }
-                        0 -> {
-                            "所以短信"
-                        }
-                        else -> {
-                            "null"
+                    var cur: Cursor? = contentResolver.query(uri, projection, null, null, "date desc") // 获取手机内部短信
+                    if (cur!!.moveToFirst()) {
+                        val address = cur.getColumnIndex("address")
+                        val person = cur.getColumnIndex("person")
+                        val body = cur.getColumnIndex("body")
+                        val date = cur.getColumnIndex("date")
+                        val type = cur.getColumnIndex("type")
+                        smsList.clear()
+                        do {
+                            var smsInfo: SMSInfo = SMSInfo()
+                            smsInfo.sender = cur.getString(address)
+                            smsInfo.content = cur.getString(body)
+                            smsInfo.date = TimeUtils.millis2Date(cur.getLong(date))
+                            smsInfo.isRead = cur.getInt(person) == 1
+                            smsList.add(smsInfo)
+                        } while (cur.moveToNext())
+                        adapterSMS.notifyDataSetChanged()
+                        if (!cur.isClosed) {
+                            cur.close()
                         }
                     }
-                    smsBuilder.append("[ ")
-                    smsBuilder.append("$strAddress, ")
-                    smsBuilder.append("$intPerson, ")
-                    smsBuilder.append("$strbody, ")
-                    smsBuilder.append("$strDate, ")
-                    smsBuilder.append(strType)
-                    smsBuilder.append(" ]\n\n")
-                } while (cur.moveToNext())
-                if (!cur.isClosed) {
-                    cur.close()
-                    cur = null
+                } catch (ex: SQLException) {
+                    Log.d("SMS", ex.toString())
                 }
-            } else {
-                smsBuilder.append("no result!")
             }
-        } catch (ex: SQLException) {
-            Log.d("SMS", ex.toString())
+            refresh_sms.finishRefresh()
         }
+    }
+
+    inner class SMSAdapter : RecyclerView.Adapter<SMSAdapter.SMSViewHolder>() {
+        inner class SMSViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SMSViewHolder {
+            return SMSViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_sms, parent, false))
+        }
+
+        override fun onBindViewHolder(holder: SMSViewHolder, position: Int) {
+            val info = smsList.get(position)
+            holder.itemView.tv_sender.text = info.sender
+            holder.itemView.tv_date.text = TimeUtils.date2String(info.date)
+            holder.itemView.tv_content.text = info.content
+        }
+
+        override fun getItemCount(): Int = smsList.size
     }
 }
