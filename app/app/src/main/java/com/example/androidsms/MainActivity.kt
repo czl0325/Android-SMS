@@ -1,5 +1,6 @@
 package com.example.androidsms
 
+import android.annotation.SuppressLint
 import android.database.Cursor
 import android.database.DataSetObserver
 import android.database.SQLException
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         recycler_sms.layoutManager = LinearLayoutManager(this)
         val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.divider)!!)
         recycler_sms.addItemDecoration(dividerItemDecoration)
         recycler_sms.adapter = adapterSMS
 
@@ -50,29 +52,32 @@ class MainActivity : AppCompatActivity() {
                 val smsBuilder = StringBuilder()
                 try {
                     val uri: Uri = Uri.parse("content://sms/")
-                    val projection = arrayOf(
-                        "_id", "address", "person",
-                        "body", "date", "type"
-                    )
-                    var cur: Cursor? = contentResolver.query(uri, projection, null, null, "date desc") // 获取手机内部短信
-                    if (cur!!.moveToFirst()) {
-                        val address = cur.getColumnIndex("address")
-                        val person = cur.getColumnIndex("person")
-                        val body = cur.getColumnIndex("body")
-                        val date = cur.getColumnIndex("date")
-                        val type = cur.getColumnIndex("type")
-                        smsList.clear()
-                        do {
-                            var smsInfo: SMSInfo = SMSInfo()
-                            smsInfo.sender = cur.getString(address)
-                            smsInfo.content = cur.getString(body)
-                            smsInfo.date = TimeUtils.millis2Date(cur.getLong(date))
-                            smsInfo.isRead = cur.getInt(person) == 1
-                            smsList.add(smsInfo)
-                        } while (cur.moveToNext())
-                        adapterSMS.notifyDataSetChanged()
-                        if (!cur.isClosed) {
-                            cur.close()
+                    val projection = arrayOf("_id", "address", "person", "body", "date", "read", "type")
+                    val cur: Cursor? = contentResolver.query(uri, projection, null, null, "date desc")
+                    if (cur != null) {
+                        // 获取手机内部短信
+                        if (cur.moveToFirst()) {
+                            val address = cur.getColumnIndex("address")
+                            val person = cur.getColumnIndex("person")
+                            val body = cur.getColumnIndex("body")
+                            val date = cur.getColumnIndex("date")
+                            val read = cur.getColumnIndex("read")
+                            val type = cur.getColumnIndex("type")
+                            smsList.clear()
+                            do {
+                                val smsInfo = SMSInfo()
+                                smsInfo.sender = cur.getString(address)
+                                smsInfo.personName = cur.getString(person)
+                                smsInfo.content = cur.getString(body)
+                                smsInfo.date = TimeUtils.millis2Date(cur.getLong(date))
+                                smsInfo.isRead = cur.getInt(read) == 1
+                                smsInfo.type = cur.getInt(type)
+                                smsList.add(smsInfo)
+                            } while (cur.moveToNext())
+                            adapterSMS.notifyDataSetChanged()
+                            if (!cur.isClosed) {
+                                cur.close()
+                            }
                         }
                     }
                 } catch (ex: SQLException) {
@@ -91,10 +96,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: SMSViewHolder, position: Int) {
-            val info = smsList.get(position)
-            holder.itemView.tv_sender.text = info.sender
-            holder.itemView.tv_date.text = TimeUtils.date2String(info.date)
-            holder.itemView.tv_content.text = info.content
+            val info = smsList[position]
+            holder.itemView.tv_sender.text = "发件人号码：${info.sender}"
+            holder.itemView.tv_person.text = "发件人姓名：${info.personName}"
+            holder.itemView.tv_date.text = "发件时间：${TimeUtils.date2String(info.date)}"
+            holder.itemView.tv_content.text = "短信内容：${info.content}"
+            holder.itemView.tv_read.text = "是否已读：${info.isRead}"
         }
 
         override fun getItemCount(): Int = smsList.size

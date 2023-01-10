@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c79f8e7f-98ad-4630-916f-53e23634280c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/contact/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/contact/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/contact/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/contact/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/contact/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/sms/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/sms/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/sms/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/sms/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/sms/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/sms/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/sms/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/sms/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/sms/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/app/src/main/res/drawable/divider.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/models/SMSInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/models/SMSInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/app/src/main/res/layout/item_sms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/res/layout/item_sms.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../app/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact/sms/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/sms/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact/sms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/sms/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,21 +43,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/zhaoliangchen/Desktop/myextra/Android-SMS/server",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/smsAdmin" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="sms" type="PythonConfigurationType" factoryName="Python">
+      <module name="server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="SDK_NAME" value="Python 3.10 (server)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/contact" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/contact/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -72,7 +99,8 @@
       <option name="presentableId" value="Default" />
       <updated>1651909521890</updated>
       <workItem from="1651909614815" duration="2612000" />
-      <workItem from="1651912337915" duration="1376000" />
+      <workItem from="1651912337915" duration="2225000" />
+      <workItem from="1673321063073" duration="1948000" />
     </task>
     <servers />
   </component>
@@ -92,5 +120,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/server$sms.coverage" NAME="sms Coverage Results" MODIFIED="1673321677507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/contact" />
   </component>
 </project>

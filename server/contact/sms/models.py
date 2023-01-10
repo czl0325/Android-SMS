@@ -1,7 +1,13 @@
 from django.db import models
 
 
-class SmsInfo(models.Model):
+class BaseModel(models.Model):
+    createdTime = models.DateTimeField(auto_now_add=True)
+    updateTime = models.DateTimeField(auto_now=True)
+    deleted = models.BooleanField(default=False)
+
+
+class SmsInfo(BaseModel):
     sender = models.CharField(max_length=30)
     date = models.BigIntegerField()
     read = models.BooleanField(default=False)
