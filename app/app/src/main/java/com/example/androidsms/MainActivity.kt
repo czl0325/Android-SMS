@@ -1,8 +1,6 @@
 package com.example.androidsms
 
-import android.annotation.SuppressLint
 import android.database.Cursor
-import android.database.DataSetObserver
 import android.database.SQLException
 import android.net.Uri
 import android.os.Bundle
@@ -10,7 +8,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -22,9 +19,11 @@ import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_sms.view.*
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
+import okhttp3.*
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.IOException
+
 
 class MainActivity : AppCompatActivity() {
     private val smsList = ArrayList<SMSInfo>()
@@ -39,6 +38,8 @@ class MainActivity : AppCompatActivity() {
         dividerItemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.divider)!!)
         recycler_sms.addItemDecoration(dividerItemDecoration)
         recycler_sms.adapter = adapterSMS
+
+        postToServer()
 
         refresh_sms.setOnRefreshListener {
             getSmsList()
@@ -86,6 +87,32 @@ class MainActivity : AppCompatActivity() {
             }
             refresh_sms.finishRefresh()
         }
+    }
+
+    private fun postToServer() {
+        val url = "http://192.168.9.124:8000/api/sms/add"
+        val requestBody = FormBody.Builder()
+            .add("sender", "name")
+            .add("phoneName", "pass")
+            .build()
+
+        //创建request请求对象
+        val request = Request.Builder()
+            .url(url)
+            .post(requestBody)
+            .build()
+
+        //创建call并调用enqueue()方法实现网络请求
+        OkHttpClient().newCall(request)
+            .enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    Log.e("czl", e.localizedMessage)
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    Log.e("czl", response.toString())
+                }
+            })
     }
 
     inner class SMSAdapter : RecyclerView.Adapter<SMSAdapter.SMSViewHolder>() {

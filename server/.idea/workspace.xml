@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c79f8e7f-98ad-4630-916f-53e23634280c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../app/app/src/main/res/drawable/divider.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/models/SMSInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/models/SMSInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/app/src/main/res/layout/item_sms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/res/layout/item_sms.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../app/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact/contact/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/contact/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact/sms/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/sms/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contact/sms/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/sms/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact/sms/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/sms/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contact/sms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/sms/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,23 +42,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/zhaoliangchen/Desktop/myextra/Android-SMS/server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zhaoliangchen/Desktop/myextra/Android-SMS/server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/smsAdmin" />
@@ -100,7 +99,8 @@
       <updated>1651909521890</updated>
       <workItem from="1651909614815" duration="2612000" />
       <workItem from="1651912337915" duration="2225000" />
-      <workItem from="1673321063073" duration="1948000" />
+      <workItem from="1673321063073" duration="4349000" />
+      <workItem from="1673334493677" duration="2889000" />
     </task>
     <servers />
   </component>
@@ -122,6 +122,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/server$sms.coverage" NAME="sms Coverage Results" MODIFIED="1673321677507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/contact" />
+    <SUITE FILE_PATH="coverage/server$sms.coverage" NAME="sms Coverage Results" MODIFIED="1673334579154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/contact" />
   </component>
 </project>
