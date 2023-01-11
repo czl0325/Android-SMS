@@ -6,7 +6,7 @@ public class SMSInfo {
     private String sender;
     private String personName;
     private String content;
-    private Date date;
+    private long date;
     private boolean isRead;
     // 0-ALL 1-收件箱 2-已发送 3-草稿 4-发件箱  5-发送失败  6-待发送
     private int type;
@@ -27,11 +27,11 @@ public class SMSInfo {
         this.content = content;
     }
 
-    public Date getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(long date) {
         this.date = date;
     }
 

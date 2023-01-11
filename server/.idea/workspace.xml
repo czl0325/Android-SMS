@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c79f8e7f-98ad-4630-916f-53e23634280c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../app/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/base/LogUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/base/SMSUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/.idea/deploymentTargetDropDown.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/models/SMSInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/example/androidsms/models/SMSInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contact/contact/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/contact/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact/sms/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/sms/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contact/sms/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/sms/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact/sms/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/sms/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contact/sms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact/sms/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +101,8 @@
       <workItem from="1651909614815" duration="2612000" />
       <workItem from="1651912337915" duration="2225000" />
       <workItem from="1673321063073" duration="4349000" />
-      <workItem from="1673334493677" duration="2889000" />
+      <workItem from="1673334493677" duration="3232000" />
+      <workItem from="1673405201261" duration="3878000" />
     </task>
     <servers />
   </component>
@@ -122,6 +124,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/server$sms.coverage" NAME="sms Coverage Results" MODIFIED="1673334579154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/contact" />
+    <SUITE FILE_PATH="coverage/server$sms.coverage" NAME="sms Coverage Results" MODIFIED="1673422461311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/contact" />
   </component>
 </project>

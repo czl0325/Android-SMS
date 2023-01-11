@@ -1,5 +1,4 @@
 from django.db import models
-import datetime
 
 
 class BaseModel(models.Model):
@@ -20,7 +19,7 @@ class SmsInfo(BaseModel):
     mobile = models.CharField(max_length=30, verbose_name="短信主人")
 
     def __str__(self):
-        return "发件人: {sender}, 日期: {date}, 内容: {content}"
+        return f"发件人: {self.sender}, 日期: {self.date}, 内容: {self.content}"
 
     class Meta:
         db_table = "sms"
